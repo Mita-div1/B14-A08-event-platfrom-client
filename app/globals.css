@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "eventlight";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #f1f5f9;
+  --color-base-300: #e2e8f0;
+  --color-base-content: #0f172a;
+  --color-primary: #2563eb;
+  --color-primary-content: #ffffff;
+  --color-secondary: #38bdf8;
+  --color-secondary-content: #0f172a;
+  --color-accent: #0ea5e9;
+  --color-accent-content: #ffffff;
+  --color-neutral: #0f172a;
+  --color-neutral-content: #f8fafc;
+  --color-info: #38bdf8;
+  --color-info-content: #0f172a;
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #0f172a;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "eventdark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0f172a;
+  --color-base-200: #0b1220;
+  --color-base-300: #020617;
+  --color-base-content: #e2e8f0;
+  --color-primary: #3b82f6;
+  --color-primary-content: #ffffff;
+  --color-secondary: #38bdf8;
+  --color-secondary-content: #020617;
+  --color-accent: #0ea5e9;
+  --color-accent-content: #020617;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #e2e8f0;
+  --color-info: #38bdf8;
+  --color-info-content: #020617;
+  --color-success: #22c55e;
+  --color-success-content: #020617;
+  --color-warning: #fbbf24;
+  --color-warning-content: #020617;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1d4ed8 100%);
+  background-attachment: fixed;
+  color: #ffffff;
 }
