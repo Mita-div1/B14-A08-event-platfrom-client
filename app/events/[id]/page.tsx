@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authClient } from "../../../lib/auth-client";
@@ -10,7 +9,7 @@ type EventItem = {
   eventType: string; eventDate: string; thumbnail: string; creatorName?: string;
 };
 
-export default function EventDetailsPage() {
+function EventDetails() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { data: session } = authClient.useSession();
@@ -70,5 +69,13 @@ export default function EventDetailsPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function EventDetailsPage() {
+  return (
+    <Suspense fallback={<div className="flex justify-center py-24"><span className="loading loading-spinner loading-lg text-white"></span></div>}>
+      <EventDetails />
+    </Suspense>
   );
 }
