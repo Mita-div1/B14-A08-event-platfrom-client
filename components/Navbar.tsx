@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authClient } from "../lib/auth-client";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function Navbar() {
         <Link href="/" className="text-xl font-bold">EventHub</Link>
       </div>
       <div className="flex-none flex items-center gap-2">
+        <ThemeToggle />
         <ul className="menu menu-horizontal px-1">
           <li><Link href="/events">Upcoming Events</Link></li>
         </ul>
