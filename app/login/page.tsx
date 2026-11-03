@@ -8,9 +8,10 @@ import { authClient } from "../../lib/auth-client";
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+
+    
+e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = String(form.get("email")).trim();
     const password = String(form.get("password"));
@@ -27,6 +28,9 @@ export default function LoginPage() {
     router.push("/");
     router.refresh();
   }
+    async function handleGithub() {
+    await authClient.signIn.social({ provider: "github", callbackURL: "/" });
+  }
 
   return (
     <section className="max-w-md mx-auto px-4 py-16">
@@ -39,6 +43,12 @@ export default function LoginPage() {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+
+                <div className="divider text-slate-300">or</div>
+        <button type="button" onClick={handleGithub} className="btn btn-outline w-full text-white">
+          Continue with GitHub
+        </button>
+
         <p className="mt-6 text-center text-slate-200">
           New to EventHub?{" "}
           <Link href="/register" className="text-sky-300 font-semibold">Register</Link>
