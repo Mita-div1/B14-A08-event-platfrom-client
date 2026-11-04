@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 import PrivateGuard from "../../components/PrivateGuard";
 import { authClient } from "../../lib/auth-client";
 
+import { authFetch } from "../../lib/api";
+
 
 const types = ["Cleanup", "Plantation", "Donation", "Blood Donation", "Education", "Health Camp"];
 const field = "w-full bg-white text-slate-900 placeholder:text-slate-500";
@@ -56,7 +58,7 @@ function CreateEventForm() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
+           const res = await authFetch("/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
 
