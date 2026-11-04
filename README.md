@@ -1,28 +1,45 @@
 # EventHub - Social Development Events Platform
 
-A community-driven platform where users can create, join and track social service events in their local area, such as winter clothes distribution, tree plantation and cleanup campaigns.
+EventHub is a community platform where people can discover, create, join and manage social development events such as cleanups, plantations, donations and health camps across Bangladesh.
 
-**Live Site:**https://b14-a08-event-platfrom-client.vercel.app/
+## Links
+
+- Live Site: https://b14-a08-event-platfrom-client.vercel.app
+- Client Repo: https://github.com/Mita-div1/B14-A08-event-platfrom-client
+- Server Repo: https://github.com/Mita-div1/B14-A08-event-platform-server
+- Live API: https://b14-a08-event-platform-server.onrender.com
 
 ## Features
 
-- Browse upcoming social service events with a clean card layout
-- Create events with title, type, location, thumbnail and a future date
-- Join events with one click and track them on the Joined Events page
-- Manage your own events: update or delete anytime
-- Email and password authentication with validation
-- Responsive design with a blue and black gradient theme
+- Authentication with email and password (BetterAuth) and GitHub social login
+- Password validation: at least 6 characters, one uppercase and one lowercase letter
+- JWT protected API routes (create, update, delete, join and personal lists)
+- Create events with form validation (title, description, future date)
+- Browse upcoming events and view full event details
+- Join events and see them in a Joined Events page
+- Manage Events page to update or delete your own events (modal based, no browser alerts)
+- Private routes: Create Event, Manage Events and Joined Events need login
+- Light and dark theme toggle that changes the whole site
+- Loading spinners while data is being fetched
+- Fully responsive design with DaisyUI and Tailwind CSS
 
 ## Tech Stack
 
-- Next.js (App Router), TypeScript, Tailwind CSS, DaisyUI
-- Express.js and MongoDB (server side)
+- Next.js (App Router) and TypeScript
+- Tailwind CSS and DaisyUI
+- BetterAuth with MongoDB adapter
+- JWT (jose on the client, jsonwebtoken on the server)
+- Express.js and MongoDB (server)
+- react-hot-toast for notifications
+- Deployed on Vercel (client) and Render (server)
 
 ## Getting Started
 
-
-npm install
-npm run dev
-
+1. Install packages: npm install
+2. Create a .env.local file with these variables (use your own values): NEXT_PUBLIC_API_URL, BETTER_AUTH_URL, BETTER_AUTH_SECRET, MONGODB_URI, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, JWT_SECRET
+3. Start the development server: npm run dev
 
 Open http://localhost:3000 in your browser.
+
+## Notes
+
